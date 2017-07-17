@@ -1,21 +1,19 @@
-# -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
-import  unittest
-from application import Application
+import unittest
 
-def is_alert_present(wd):
-    try:
-        wd.switch_to_alert().text
-        return True
-    except:
-        return False
+
+
+class Application:
+    def __init__(self):
+        self.wd = WebDriver()
+        self.wd.implicitly_wait(60)
+
 
 class test_add_group(unittest.TestCase):
     def setUp(self):
-        self.app = Application
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
-    
+
     def test_add_group(self):
         success = True
         self.open_home_page()
@@ -65,8 +63,5 @@ class test_add_group(unittest.TestCase):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
-    def tearDown(self):
-        self.wd.quit()
-
-if __name__ == '__main__':
-    unittest.main()
+def destroy(self):
+    self.wd.quit()
