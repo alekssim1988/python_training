@@ -1,5 +1,5 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
-import unittest
+
 
 
 
@@ -7,20 +7,6 @@ class Application:
     def __init__(self):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
-
-
-class test_add_group(unittest.TestCase):
-    def setUp(self):
-        self.wd = WebDriver()
-        self.wd.implicitly_wait(60)
-
-    def test_add_group(self):
-        success = True
-        self.open_home_page()
-        self.login(login="admin", password="secret")
-        self.open_groups_page()
-        self.create_group()
-        self.logout()
 
     def logout(self):
         wd = self.wd
@@ -63,5 +49,5 @@ class test_add_group(unittest.TestCase):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
-def destroy(self):
-    self.wd.quit()
+     def destroy(self):
+         self.wd.quit()
